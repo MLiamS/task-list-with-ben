@@ -50,4 +50,11 @@ public class TaskTest {
     Task secondTask = new Task("Buy groceries");
     assertEquals(Task.find(secondTask.getId()), secondTask);
   }
+
+  @Test
+  public void fint_Parent(){
+    Category myCategory = new Category("A");
+    Task myTask = new Task("I have a parent", myCategory);
+    assertEquals("A", myTask.getParent());
+  }
 }

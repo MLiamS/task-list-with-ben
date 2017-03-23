@@ -3,7 +3,10 @@ import static org.junit.Assert.*;
 import java.time.LocalDateTime;
 
 public class TaskTest {
-
+  @After
+  public void tearDown()  {
+    Task.clear();
+  }
   @Test
   public void Task_instantiatesCorrectly_true() {
     Task myTask = new Task("Mow the lawn");
@@ -51,10 +54,4 @@ public class TaskTest {
     assertEquals(Task.find(secondTask.getId()), secondTask);
   }
 
-  @Test
-  public void fint_Parent(){
-    Category myCategory = new Category("A");
-    Task myTask = new Task("I have a parent", myCategory);
-    assertEquals("A", myTask.getParent());
-  }
 }
